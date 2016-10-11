@@ -1,41 +1,48 @@
 <?php
-class Pokemon_model extends CI_Model{
+class Pokemon extends CI_Controller{
+
     public function __construct(){
-        $this->load->database();
+        $this->load->model('pokemon_model'); // load model 'pokemon_model'
     }
-    /* Fungsi ini me return semua record yang ada dalam tabel pokemon */
-    public function get_all(){
-        return $this->db->get('pokemon')->result();
+
+
+    // URL : http://localhost/[directory]/index.php/pokemon/index
+    public function index(){
+        // TODO: dapatkan hasil dari fungsi get_all di pokemon_model
+        // TODO: load view pokemon_index, berikan data yang didapat dari fungsi get_all
     }
-    /* Fungsi ini me return satu record dari tabel pokemon dalam bentuk object. 
-     * Record yang di return adalah record dengan id $id 
-     */
-    public function get_one($id){
-        // TODO: Modif bagian ini
-        return $this->db->get_where('pokemon',array('id' => $id))->result();
+
+    // URL : http://localhost/[directory]/index.php/pokemon/insert_form
+    public function insert_form(){
+        // TODO: load view pokemon_insert_form
     }
-    /* Fungsi ini menginsertkan data ke dalam tabel pokemon.
-     * Parameter $data berisi data yang akan diinsertkan dalam bentuk associative array
-     * yang terdiri dari pasangan key=>value. Key adalan nama field, sedangkan value adalah
-     * nilai field
-     */
-    public function insert($data){
-        // TODO: Modif bagian ini
-        $this->db->insert('pokemon', $data);
+
+    // URL : http://localhost/[directory]/index.php/insert_action
+    public function insert_action(){
+        $nama = $this->input->post('nama'); // dapatkan nilai inputan nama
+        $tipe = $this->input->post('tipe'); // dapatkan nilai inputan tipe
+        // TODO: panggil fungsi insert di pokemon_model
+        // TODO: load view pokemon_insert_action
     }
-    /* Fungsi ini mengupdate data ke dalam tabel pokemon yang memiliki id=$id.
-     * Parameter $data berisi data yang akan diinsertkan dalam bentuk associative array
-     * yang terdiri dari pasangan key=>value. Key adalan nama field, sedangkan value adalah
-     * nilai field
-     */
-    public function update($data, $id){
-        // TODO: Modif bagian ini
-        $this->db->where('id', $id);
-        $this->db->update('pokemon', $data);
+
+    // URL : http://localhost/[directory]/index.php/pokemon/update_form/[id]
+    public function update_form($id){
+        // TODO: panggil fungsi get_one di pokemon_model 
+        // TODO: load view pokemon_update_form, berikan data yang didapat dari fungsi get_one
     }
-    /* Fungsi ini menghapus satu record dari tabel pokemon yan memiliki id=$id*/
-    public function delete($id){
-        // TODO: Modif bagian ini
-        $this->db->delete('pokemon', array('id' => $id));
+
+    // URL : http://localhost/[directory]/index.php/update_action/[id]
+    public function update_action($id){
+        $nama = $this->input->post('nama'); // dapatkan nilai inputan nama
+        $tipe = $this->input->post('tipe'); // dapatkan nilai inputan tipe
+        // TODO: panggil fungsi update di pokemon_model
+        // TODO: load view pokemon_update_action
     }
+
+    // URL : http://localhost/[directory]/index.php/delete/[id]
+    public function delete_action($id){
+        // TODO: panggil fungsi delete di pokemon_model
+        // TODO: load view pokemon_delete
+    }
+
 }
