@@ -25,5 +25,6 @@
     - nama, nrp, user name
     - Dio Okky Affriza, 14111014, afuriza
     - Erwan Kusuma Wijaya, 141111018, Onlycrash
+    - Rissa Arimawan 141111074 ,aroflouz
 * Kontribusi
 * Ajukan pull request
