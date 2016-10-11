@@ -3,7 +3,7 @@
 	<head>
 		<title> Menambahkan Data </title>
 	</head>
-	<body>
+	<body bgcolor=cyan>
 		<form method="POST" action="<?php echo base_url()."index.php/pokemon/insert_action"; ?>">
 		<table>
 			<tr>
